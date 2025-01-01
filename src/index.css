@@ -1,0 +1,40 @@
+html {
+  --shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.personal-infos {
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 5px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding-left: 10px;
+  height: 1.5rem;
+  width: 12rem;
+  border-radius: 0.7rem;
+  border: 1px solid black;
+}
+
+form button {
+  padding: 3px;
+  width: 6rem;
+  height: 1.75rem;
+  border-radius: 13px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
