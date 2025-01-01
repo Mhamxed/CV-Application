@@ -1,1 +1,1 @@
-# CV-Application
+Create a CV maker react app.
