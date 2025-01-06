@@ -7,22 +7,26 @@
   margin: 0;
 }
 
-.app {
-  background-color: beige;
-}
-
-body {
-  background-color: beige;
-}
-
 .container {
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 2rem;
+  padding: 3rem;
+  background-color: #e5e7eb;
 }
 
 .infos {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+h3 {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.section {
+  padding: 0.25rem;
+  background-color: #e5e7eb;
+  margin: 1rem 3rem;
 }
