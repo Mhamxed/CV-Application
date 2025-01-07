@@ -23,31 +23,31 @@ function App() {
     {
     school: "Top 10 CS School", 
     degree: "Master of Science in Computer Science, Specialization in Machine Learning, GPA: 4.0", 
-    startDate: "09/2024",
-    endDate: "Present",
+    startDate: "2024-09",
+    endDate: "2025-01",
     location: "City, USA"
   }, 
   {
     school: "Mid Tier School", 
     degree: "Bachelor of Science in Computer Science, Minor in Mathematics", 
-    startDate: "01/2020",
-    endDate: "07/2024",
+    startDate: "2020-01",
+    endDate: "2024-07",
     location: "City, USA" 
   }])
   const [exp, setExp] = useState([
     {
-      employer: "Company (FAANG subsidiary)", 
+      employer: "FAANG subsidiary", 
       position: "Software Engineer", 
-      startDate: "04/2021", 
-      endDate: "09/2022", 
+      startDate: "2021-04", 
+      endDate: "2022-09", 
       location: "City, USA", 
       desc: "- Developed and maintained high-performance, scalable, and secure RESTful web microservices serving 5M+ users using Spring Boot and Node.js - Collaborated cross-functionally with multiple teams to develop new front-end features using Angular, including Ul redesigns, dynamic user forms and API integrations - Contributed to automating deployment of containerized microservices to AWS using Jenkins CI/CD, Docker and Kubernetes, cutting deployment time by 50% - Boosted web page load speeds by 30% through code refactoring, SQL query optimization and caching - Achieved over 80% automated test coverage by implementing unit, integration and end-to-end tests, ensuring robust and bug-free production code"
     }, 
     {
       employer: "Company", 
       position: "Software Developer", 
-      startDate: "08/2019", 
-      endDate: "08/2020", 
+      startDate: "2019-08", 
+      endDate: "2020-08", 
       location: "City, USA", 
       desc: "- Managed overhaul of client-side web architecture, improving overall system efficiency and scalability through the use of HTML, CSS, JavaScript and AJAX - Implemented CRUD operations on the backend using PHP and SQL - Led database migration from MySQL to MS SQL, improving data management and system performance"
     }
@@ -74,6 +74,42 @@ function App() {
       endDate.value = ""
       location.value = ""
     }
+  }
+
+  function handleEditEdu(e, index) {
+    e.preventDefault()
+    const education = edu[index]
+    const eduForm = document.querySelector('.edu-form')
+    let school = eduForm.children[0].children[1]
+    let degree = eduForm.children[1].children[1]
+    let startDate = eduForm.children[2].children[1]
+    let endDate = eduForm.children[3].children[1]
+    let location = eduForm.children[4].children[1]
+    school.value = education.school
+    degree.value = education.degree
+    startDate.value = education.startDate
+    endDate.value = education.endDate
+    location.value = education.location
+    handleDeleteEdu(index)
+  }
+
+  function handleEditExp(e, index) {
+    e.preventDefault()
+    const experience = exp[index]
+    const expForm = document.querySelector('.exp-form')
+    let employer = expForm.children[0].children[1]
+    let position = expForm.children[1].children[1]
+    let startDate = expForm.children[2].children[1]
+    let endDate = expForm.children[3].children[1]
+    let location = expForm.children[4].children[1]
+    let desc = expForm.children[5].children[1]
+    employer.value = experience.employer
+    position.value = experience.position
+    startDate.value = experience.startDate
+    endDate.value = experience.endDate
+    location.value = experience.location
+    desc.value = experience.desc
+    handleDeletetExp(index)
   }
 
   function handleDeleteEdu(index) {
@@ -131,11 +167,11 @@ return (
       <PersonalInfo firstNameChange={firstNameChange} emailChange={emailChange} phoneNumberChange={phoneNumberChange} addressChange={addressChange}/>
       <Education handleAddEdu={handleAddEdu}/>
       {edu.map((item, index) => {
-        return <EduSection school={item.school} location={item.loation} handleDeleteEdu={ () => handleDeleteEdu(index)} key={index}/>
+        return <EduSection school={item.school} location={item.location} handleEditEdu={ (e) => handleEditEdu(e, index)} handleDeleteEdu={ () => handleDeleteEdu(index)} key={index}/>
       })}
       <Experience handleAddExp={ handleAddExp }/>
       {exp.map((item, index) => {
-        return <ExpSection employer={item.employer} location={item.loation} handleDeletetExp={ () => handleDeletetExp(index)} key={index}/>
+        return <ExpSection employer={item.employer} location={item.location} handleEditExp={ (e) => handleEditExp(e, index)} handleDeletetExp={ () => handleDeletetExp(index)} key={index}/>
       })}
     </div>
     <ResumePreview/>

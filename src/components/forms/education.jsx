@@ -5,7 +5,7 @@ function Education({ handleAddEdu }) {
     return (
         <div className="education-input">
             <h3>Education</h3>
-            <form>
+            <form className='edu-form'>
                 <div className='input'>
                     <label htmlFor="school">School</label>
                     <input type="text" id='school' placeholder='Enter school'/>

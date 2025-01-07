@@ -5,7 +5,7 @@ function Experience({ handleAddExp }) {
     return (
         <div className="experience-input">
             <h3>Experience</h3>
-            <form>
+            <form className='exp-form'>
                 <div className='input'>
                     <label htmlFor="employer">Employer</label>
                     <input type="text" id='employer' placeholder='Enter company'/>
