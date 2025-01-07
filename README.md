@@ -1,1 +1,1 @@
-Create a CV maker react app.
+Create a CV builder react app using REACT, Javascript, CSS, and HTML.
